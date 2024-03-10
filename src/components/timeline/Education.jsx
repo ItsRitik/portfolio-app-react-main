@@ -54,11 +54,11 @@ const Education = () =>{
             <TimelineContent sx={{marginLeft:1,paddingLeft:1}}>
               <div>
                 <p className='text-xl text-selective-yellow-300'>University Of Mumbai</p>
-                <p className='text-sm text-selective-yellow-100'>Bacholr's Of Engineering(Computer Engineering)</p>
+                <p className='text-sm text-selective-yellow-100'>Bachelor's Of Engineering(Computer Engineering)</p>
                 <p className='text-xs pb-1 text-mine-shaft-100 font-bold'>December 2021 - June 2023</p>
                 <ul className='text-xs'>
                   <li>Data Structures</li>
-                  <li>analysis Of algorithm</li>
+                  <li>Analysis Of algorithm</li>
                   <li>Intro to Cloud Computing</li>
                   <li>Software Engineering</li>
                 </ul>

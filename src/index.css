@@ -37,6 +37,17 @@
     )!important;
 }
 
+.foot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.foot_icon{
+    display: flex;
+    flex-direction: row;
+}
+
 
 /* .head-timeline TimelineDot{
     
