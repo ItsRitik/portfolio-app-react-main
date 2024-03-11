@@ -14,8 +14,8 @@ const Footer = () => {
 
             </div>
             <div className='foot_icon'>
-                <FaLinkedin className='m-2 lg:m-4' size={35}/>
-                <FaGithub  className='m-2 lg:m-4' size={35} />
+                <a href='https://www.linkedin.com/in/ritik-kale/' target='_blank'><FaLinkedin className='m-2 lg:m-4' size={35}/></a>
+                <a  href='https://github.com/ItsRitik?tab=repositories' target='_blank'><FaGithub  className='m-2 lg:m-4' size={35} /></a>
             </div>
         </div>
         
