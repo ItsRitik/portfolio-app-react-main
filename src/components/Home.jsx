@@ -20,12 +20,14 @@ const Home = () => {
         I am excited to continue my professional journey in the software engineering field and am <span className='text-xl sm:text-2xl text-selective-yellow-300'>looking for an internship</span> that will allow me to apply my strong development skills while gaining the <span className='text-xl sm:text-2xl text-selective-yellow-300'>mentorship</span> needed to advance in my career.
         </p>
         <div>
+          <a href='https://drive.google.com/file/d/1FwJFdLZRLocXTcXXtSzmnM1j_EY0hQ5S/view?usp=drive_link'>
           <button className='text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'>
             Resume
             <span className='group-hover:rotate-90 duration-300'>
               <HiArrowNarrowRight className='ml-3 ' />
             </span>
           </button>
+          </a>
         </div>
       </div>
     </div>
