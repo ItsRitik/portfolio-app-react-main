@@ -4,9 +4,9 @@ import Education from "./timeline/Education";
 
 const About = () => {
   return (
-    <div name="about" className="w-full py-10   bg-background text-gray-300">
+    <div name="about" className="w-full py-10 bg-gray-900 text-gray-300">
       <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="max-w-[100%] lg:max-w-[80%] w-full grid lg:grid-cols-2 px-4">
+        <div className="max-w-[100%] xl:max-w-[80%] w-full grid lg:grid-cols-2 px-4">
           <WorkExp />
           <Education />
         </div>

@@ -1,88 +1,98 @@
-import React, { useState } from "react";
+import React from "react";
 import { prodata } from "../data/prodata";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
+};
 
 const Project = () => {
-  // projects file
   const project = prodata;
 
   return (
-    <div name="work" className="w-full text-center bg-background text-gray-300">
-      <div className="max-w-[100%] mx-auto p-4 flex flex-col justify-center w-full h-full">
+    <div name="work" className="w-full text-center bg-background text-gray-300 py-10">
+      <div className="max-w-[100%] mx-auto px-4 flex flex-col justify-center w-full h-full">
         <div>
-          <p className="text-4xl text-center font-bold inline border-b-4 border-pink-600 ">
+          <p className="text-4xl text-center font-bold inline border-b-4 border-pink-600">
             Projects
           </p>
-          <p className="py-4">// Check out some of my recent work</p>
+          <p className="py-4 text-sm sm:text-base">
+            // Check out some of my recent work
+          </p>
         </div>
-        <div className="max-w-[100%] rounded-lg lg:max-w-[80%] mx-auto grid lg:grid-cols-2 gap-4 auto-rows-max  text-center py-6">
-          {project.map((items, index) => (
-            <div
+
+        <div className="lg:max-w-[80%] mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 auto-rows-max py-6">
+          {project.map((item, index) => (
+            <motion.div
               key={index}
-              className="bg-mine-shaft-700 h-max sm:h-full shadow-md shadow-[#040c16] hover:scale-110 duration-500"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              custom={index}
+              className="bg-mine-shaft-700 shadow-md shadow-[#040c16] rounded-lg overflow-hidden hover:scale-105 transition-transform duration-500"
             >
-              {items.id === 3 ? (
-                <>
-                  <video
-                    src={`${items.img}`}
-                    className="rounded-t-lg  h-1/2 w-full"
-                    controls
-                  />
-                </>
+              {item.id === 3 ? (
+                <video
+                  src={item.img}
+                  className="h-52 w-full object-cover"
+                  controls
+                />
               ) : (
-                <>
-                  <img
-                    class="rounded-t-lg  h-1/2 w-full"
-                    src={`${items.img}`}
-                    alt={`${items.title}`}
-                  />
-                </>
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="h-52 w-full object-cover"
+                />
               )}
-              <h1 className="text-xl lg:text-3xl text-selective-yellow-300  p-3 text-center font-bold inline">
-                {items.title}
+
+              <h1 className="text-xl lg:text-2xl text-selective-yellow-300 p-4 font-bold">
+                {item.title}
               </h1>
-              <div>
-                <ul className="p-3">
-                  {items.tech.map((items, key) => (
-                    <li className="p-1 m-1 text-white font-bold text-xs  shadow-md shadow-[#040c16] border-mine-shaft-500 bg-slate-900 inline-block ">
-                      {items}
-                    </li>
-                  ))}
-                </ul>
+
+              <div className="px-4 flex flex-wrap justify-center gap-2">
+                {item.tech.map((tech, key) => (
+                  <span
+                    key={key}
+                    className="px-2 py-1 text-xs font-semibold text-white bg-slate-900 rounded shadow"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-              <p className="p-2 text-xs lg:text-sm">{items.descp}</p>
-              <div className="mt-3 flex-row">
-                {items.linktolive === "" ? (
-                  <></>
-                ) : (
-                  <>
-                    <a href={`${items.linktolive}`} target="_blank">
-                      <button
-                        type="button"
-                        class="text-black bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-3"
-                      >
-                        Checkout to Project
-                      </button>
-                    </a>
-                  </>
+
+              <p className="px-4 py-3 text-xs lg:text-sm">{item.descp}</p>
+
+              <div className="flex justify-center gap-4 pb-4">
+                {item.linktolive && (
+                  <a
+                    href={item.linktolive}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="text-black bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm px-3 py-1.5">
+                      Live Demo
+                    </button>
+                  </a>
                 )}
 
-                <a href={`${items.linktocode}`} target="_blank">
-                  <button
-                    type="button"
-                    class="text-black text-sm font-bold bg-gradient-to-br ml-3 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-3"
-                  >
+                <a
+                  href={item.linktocode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="text-black bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm px-3 py-1.5">
                     Preview Code
                   </button>
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
-          {/* <ModalVideo
-              channel="custom"
-              isOpen={isOpen}
-              url="./Demo.mp4" 
-              onClose={closeModal}
-          /> */}
         </div>
       </div>
     </div>
