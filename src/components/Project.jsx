@@ -15,7 +15,7 @@ const Project = () => {
   const project = prodata;
 
   return (
-    <div name="work" className="w-full text-center bg-background text-gray-300 py-10">
+    <div name="work" className="w-full text-center bg-gray-900 text-gray-300 py-10">
       <div className="max-w-[100%] mx-auto px-4 flex flex-col justify-center w-full h-full">
         <div>
           <p className="text-4xl text-center font-bold inline border-b-4 border-pink-600">
